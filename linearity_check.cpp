@@ -53,19 +53,4 @@ void draw_linearity_check() {
 
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 	GL_ERRORS();
-
-	{ //Check and report colorspace:
-		GLint encoding = 0;
-		glGetFramebufferAttachmentParameteriv(GL_DRAW_FRAMEBUFFER, GL_BACK_LEFT, GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING, &encoding);
-		GL_ERRORS();
-		std::cout << "Color encoding in framebuffer is ";
-		if (encoding == GL_LINEAR) {
-			std::cout << "GL_LINEAR" << std::endl;
-		} else if (encoding == GL_SRGB) {
-			std::cout << "GL_SRGB" << std::endl;
-		} else {
-			std::cout << "Unknown (" << encoding << ")" << std::endl;
-		}
-	}
-
 }
